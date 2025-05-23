@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo azul con esquinas redondeadas -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#2196F3" /> <!-- Azul base -->
+            <corners android:radius="28dp" /> <!-- Bordes redondeados -->
+        </shape>
+    </item>
+
+    <!-- Borde discontinuo azul oscuro con esquinas redondeadas -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="3dp"
+                android:color="#1976D2"
+                android:dashWidth="6dp"
+                android:dashGap="4dp" />
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="28dp" />
+        </shape>
+    </item>
+
+</layer-list>

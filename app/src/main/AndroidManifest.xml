@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PocketGYM"
+        tools:targetApi="31">
+        <activity
+            android:name=".grabarUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".Seguimiento_Ejercicios"
+            android:exported="false" />
+        <activity
+            android:name=".DiasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Seguimiento_Series"
+            android:exported="false" />
+        <activity
+            android:name=".VideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImagenTabla"
+            android:exported="false" />
+        <activity
+            android:name=".RutinaEjercicios"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".UsuarioMenu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

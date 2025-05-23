@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/paralax">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="200dp"
+            android:layout_height="51dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:text="Nombre"
+            android:textAlignment="center"
+            android:textColor="#1971c2"
+            android:textSize="34sp" />
+
+
+        <ImageButton
+            android:id="@+id/btn_perfil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/ic_profile"
+            android:onClick="PopupInfo" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="535dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <Button
+            android:id="@+id/btn_rutina"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/boton_estilo"
+            android:backgroundTint="@null"
+            android:fontFamily="@font/aclonica"
+            android:onClick="go_Rutina"
+            android:text="@string/boton_rutina"
+            android:textColor="#3EA3F4"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_seg"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/boton_estilo"
+
+            android:backgroundTint="@null"
+            android:fontFamily="@font/aclonica"
+            android:onClick="go_Seguimiento"
+            android:text="@string/boton_seguimiento"
+            android:textColor="#3EA3F4"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_rutina" />
+
+        <Button
+            android:id="@+id/btn_his"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/boton_estilo"
+            android:backgroundTint="@null"
+            android:fontFamily="@font/aclonica"
+            android:onClick="go_Historial"
+            android:text="@string/boton_historial"
+            android:textColor="#3EA3F4"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_seg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
