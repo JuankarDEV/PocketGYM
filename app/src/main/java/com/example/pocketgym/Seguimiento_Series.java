@@ -253,6 +253,7 @@ public class Seguimiento_Series extends AppCompatActivity {
     }
 
     public void guardarDatos() {
+        int contadorSeriesguardadas = 0 ;
         for (int i = 0; i < listaET.size(); i += 2) {
             String pesoStr = listaET.get(i).getText().toString();
             String repeticionesStr = listaET.get(i + 1).getText().toString();
@@ -263,7 +264,7 @@ public class Seguimiento_Series extends AppCompatActivity {
                 int serie = (i / 2) + 1;
 
                 if (usuarioDAO.insertarSeries(id_usuario, id_ejercicio, repeticiones, peso, serie,dia)) {
-                    Toast.makeText(this, "Serie " + serie + " Guardada Correctamente", Toast.LENGTH_SHORT).show();
+                    contadorSeriesguardadas ++;
                 } else {
                     Toast.makeText(this, "Error al guardar serie" + serie, Toast.LENGTH_SHORT).show();
                 }
@@ -271,6 +272,11 @@ public class Seguimiento_Series extends AppCompatActivity {
                 Toast.makeText(this, "Rellena todos los campos antes de guardar", Toast.LENGTH_SHORT).show();
 
             }
+        }
+        if(contadorSeriesguardadas==listaET.size()/2){
+            Toast.makeText(this, "Series Guardadas con exito" ,Toast.LENGTH_SHORT).show();
+            usuarioDAO.UpdateEjercicios(id_usuario);
+            finish();
         }
 
     }

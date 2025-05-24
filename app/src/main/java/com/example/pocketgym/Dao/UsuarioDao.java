@@ -288,5 +288,22 @@ public class UsuarioDao{
 
         return pesoyrespes;
     }
+    public boolean UpdateEjercicios(int id) {
+        String sql = "update progreso_usuarios set ejercicios_completados = ejercicios_completados +  1 where usuario_id = ?;";
 
+        try (Connection conexion = conexionDB.conectarBD();
+             PreparedStatement pstmt = conexion.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return  true ;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }

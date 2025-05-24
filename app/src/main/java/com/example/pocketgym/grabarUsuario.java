@@ -95,6 +95,7 @@ public class grabarUsuario extends AppCompatActivity {
         } finally {
             try {
                 ndef.close();
+                finish();
             } catch (IOException e) {
                 e.printStackTrace();
             }
