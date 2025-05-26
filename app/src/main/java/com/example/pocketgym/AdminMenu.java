@@ -68,7 +68,12 @@ public class AdminMenu extends AppCompatActivity {
         }
         else if (dni.isEmpty()){
             Toast.makeText(this,"El DNI no puede estar en blanco",Toast.LENGTH_SHORT).show();
-        } else {
+        }
+        else if (dni.equalsIgnoreCase("admin")|| nombre.equalsIgnoreCase("admin")){
+            Toast.makeText(this,"El DNI o nombre no puede ser 'admin'",Toast.LENGTH_SHORT).show();
+
+        }
+        else {
             usuarioDAO.insertarUsuario(new Usuario(nombre,dni,nivel,true));
             Toast.makeText(this,"usuario introducido corrrectamente",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, grabarUsuario.class);

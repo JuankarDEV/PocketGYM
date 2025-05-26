@@ -1,12 +1,18 @@
 package com.example.pocketgym;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.InputType;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -274,10 +280,40 @@ public class Seguimiento_Series extends AppCompatActivity {
             }
         }
         if(contadorSeriesguardadas==listaET.size()/2){
-            Toast.makeText(this, "Series Guardadas con exito" ,Toast.LENGTH_SHORT).show();
             usuarioDAO.UpdateEjercicios(id_usuario);
-            finish();
+            popupSeries();
+            new Handler().postDelayed(() -> {
+                finish();
+            }, 2500);
+
         }
 
+    }
+    public void popupSeries() {
+        if (isFinishing() || isDestroyed()) {
+            return;
+        }
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            LayoutInflater inflater = LayoutInflater.from(this);
+            View popupView = inflater.inflate(R.layout.pop_up_personalizado, null);
+
+            TextView txtMensaje = popupView.findViewById(R.id.tw_nombre);
+            ImageView img_popup = popupView.findViewById(R.id.imgIconopopup);
+
+
+            img_popup.setImageResource(R.mipmap.check);
+            txtMensaje.setText("Series guardadas con exito");
+
+            PopupWindow popupEmergente = new PopupWindow(
+                    popupView,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    true
+            );
+
+            popupEmergente.showAtLocation(findViewById(android.R.id.content), Gravity.CENTER, 0, 0);
+
+        }, 100);
     }
 }
