@@ -34,10 +34,9 @@ git clone https://github.com/tu_usuario/pocket-gym.git
 
 # Abrir el proyecto en Android Studio
 📸 Capturas de pantalla
-(Aquí puedes agregar imágenes de la app cuando las tengas)
 
 👤 Autor
-Desarrollado por [Tu Nombre].
+Desarrollado por JuankarDEV.
 
 📄 Licencia
 Aún no se ha definido una licencia específica. Si no estás seguro, puedes empezar con una licencia permisiva como MIT, que permite el uso, modificación y distribución libre de tu código con atribución.
