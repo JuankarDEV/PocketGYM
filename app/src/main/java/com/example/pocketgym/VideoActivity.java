@@ -31,33 +31,17 @@ public class VideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_video);
-
         String ejercicio = getIntent().getStringExtra("boton");
-
         conexionDB = new ConexionBBDD();
         usuarioDAO = new UsuarioDao(conexionDB);
-
         textView_ejercicio = findViewById(R.id.tw_nombre_video);
-
         textView_ejercicio.setText(ejercicio);
-
         String video_url = usuarioDAO.obtenerVideoEjercicio(ejercicio);
-
         PlayerView playerView = findViewById(R.id.videoView);
-
-
         player = new SimpleExoPlayer.Builder(this).build();
-
-
         playerView.setPlayer(player);
-
-
         String videoUrl = "https://rfakleoxqnovsdfqzilz.supabase.co/storage/v1/object/public/videos//"+video_url+".mp4";
-
-        // Crea un MediaItem a partir de la URL
         MediaItem mediaItem = MediaItem.fromUri(Uri.parse(videoUrl));
-
-        // Prepara y reproduce el video
         player.setMediaItem(mediaItem);
         player.prepare();
         player.play();

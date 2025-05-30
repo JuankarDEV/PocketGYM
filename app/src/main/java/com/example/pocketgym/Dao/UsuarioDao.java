@@ -67,14 +67,15 @@ public class UsuarioDao{
         }
     }
 
-    public   ArrayList<String> obtenerEjercicios(int nivel_usuario) {
+
+    public   ArrayList<String> obtenerEjercicios(int id_usuario) {
         ArrayList<String>listaEjercicios = new ArrayList<>();
         String sql = "select e.nombre from ejercicios e inner join usuarios u on u.id = ? inner join niveles_ejercicios ne on u.nivel = ne.nivel where e.tabla_id = ne.id ";
 
         try (Connection conexion = conexionDB.conectarBD();
              PreparedStatement pstmt = conexion.prepareStatement(sql)) {
 
-            pstmt.setInt(1, nivel_usuario);
+            pstmt.setInt(1, id_usuario);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {

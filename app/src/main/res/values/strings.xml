@@ -3,4 +3,7 @@
     <string name="boton_rutina">Rutina</string>
     <string name="boton_seguimiento">Seguimiento</string>
     <string name="boton_historial">Historial</string>
+    <string name="mensaje_grabar">Acerque
+        la tarjeta
+        al telefono</string>
 </resources>

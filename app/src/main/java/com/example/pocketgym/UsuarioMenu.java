@@ -55,12 +55,9 @@ public class UsuarioMenu extends AppCompatActivity {
         conexionDB = new ConexionBBDD();
         usuarioDAO = new UsuarioDao(conexionDB);
 
-        // usuario = getIntent().getStringExtra("usuario_nombre");
-      //    id_usuario = getIntent().getIntExtra("usuario_id",0);
+        usuario = getIntent().getStringExtra("usuario_nombre");
+         id_usuario = getIntent().getIntExtra("usuario_id",0);
 
-
-     usuario = "Juan Pérez";
-     id_usuario = 1;
 
         infouser = usuarioDAO.obtenerUsuarioporid(id_usuario);
 
@@ -188,26 +185,26 @@ public class UsuarioMenu extends AppCompatActivity {
         }, 100);
     }
 
-    private void updateProgress(int progress) {
+    private void updateProgress(int progreso) {
         if (progressBar == null || weightIcon == null || progressText == null) return;
 
-        progressBar.setProgress(progress);
-        progressText.setText(progress + "/50");
+        progressBar.setProgress(progreso);
+        progressText.setText(progreso + "/50");
 
         progressBar.post(() -> {
             int max = progressBar.getMax();
             int barWidth = progressBar.getWidth();
             int iconWidth = weightIcon.getWidth();
 
-            float ratio = (float) progress / max;
+            float ratio = (float) progreso / max;
             float positionX = ratio * (barWidth - iconWidth);
 
             weightIcon.setTranslationX(positionX);
 
-            if (progress < 15) {
+            if (progreso < 15) {
                 progressBar.setProgressTintList(ColorStateList.valueOf(Color.RED));
                 weightIcon.setImageResource(R.drawable.ronnie_enfadado);
-            } else if (progress < 35) {
+            } else if (progreso < 35) {
                 progressBar.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
                 weightIcon.setImageResource(R.drawable.ronnie_neutral);
             } else {

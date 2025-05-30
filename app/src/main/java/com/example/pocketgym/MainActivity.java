@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             if (ndefMessage != null && ndefMessage.getRecords().length > 0) {
                 String message = new String(ndefMessage.getRecords()[0].getPayload(), StandardCharsets.UTF_8);
                 message = message.substring(3); // Saltar el idioma
-                Toast.makeText(this, "Mensaje NFC leído: " + message, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, "Mensaje NFC leído: " + message, Toast.LENGTH_SHORT).show();
                 buscarUsuario(message.trim());
             }
         } catch (Exception e) {
@@ -186,10 +186,10 @@ public class MainActivity extends AppCompatActivity {
         if (usuario != null) {
             Intent intent;
             if (usuario.getCodigoNfc().equals("Admin")) {
-                Toast.makeText(this, "Admin encontrado: " + usuario.getNombre(), Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, "Admin encontrado: " + usuario.getNombre(), Toast.LENGTH_SHORT).show();
                 intent = new Intent(MainActivity.this, AdminMenu.class);
             } else {
-                Toast.makeText(this, "Usuario encontrado: " + usuario.getNombre(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "Usuario encontrado: " + usuario.getNombre(), Toast.LENGTH_SHORT).show();
                 intent = new Intent(MainActivity.this, UsuarioMenu.class);
             }
 

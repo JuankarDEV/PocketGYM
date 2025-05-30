@@ -9,6 +9,15 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -86,19 +95,47 @@ public class grabarUsuario extends AppCompatActivity {
                 Toast.makeText(this, "Etiqueta NFC no es escribible", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             ndef.writeNdefMessage(ndefMessage);
-            Toast.makeText(this, "DNI escrito en etiqueta NFC", Toast.LENGTH_LONG).show();
         } catch (IOException | android.nfc.FormatException e) {
             Toast.makeText(this, "Error escribiendo en la etiqueta NFC", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         } finally {
             try {
                 ndef.close();
-                finish();
+                popupGrabar();
+                new Handler().postDelayed(() -> {
+                    finish();
+                }, 2500);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+    public void popupGrabar() {
+        if (isFinishing() || isDestroyed()) {
+            return;
+        }
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            LayoutInflater inflater = LayoutInflater.from(this);
+            View popupView = inflater.inflate(R.layout.pop_up_personalizado, null);
+
+            TextView txtMensaje = popupView.findViewById(R.id.tw_nombre);
+            ImageView img_popup = popupView.findViewById(R.id.imgIconopopup);
+
+
+            img_popup.setImageResource(R.mipmap.check);
+            txtMensaje.setText("Usuario Grabado En la tarjeta");
+
+            PopupWindow popupEmergente = new PopupWindow(
+                    popupView,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    true
+            );
+
+            popupEmergente.showAtLocation(findViewById(android.R.id.content), Gravity.CENTER, 0, 0);
+
+        }, 100);
     }
 }

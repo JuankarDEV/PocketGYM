@@ -43,7 +43,7 @@ public class RutinaEjercicios extends AppCompatActivity {
          id_usuario = getIntent().getIntExtra("usuario_id",0);
 
         LinearLayout contenedorEjercicios = findViewById(R.id.Contenedor_Ejercicios);
-        ListaEjercicios = usuarioDAO.obtenerEjercicios(1);
+        ListaEjercicios = usuarioDAO.obtenerEjercicios(id_usuario);
 
         for (String ejercicio : ListaEjercicios) {
             Button boton = new Button(this);

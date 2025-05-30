@@ -24,14 +24,10 @@ import java.util.Arrays;
 
 public class AdminMenu extends AppCompatActivity {
 
-    ArrayList<String>niveles = new ArrayList<>(Arrays.asList("1","2","3","4","5"));
+    ArrayList<String> niveles = new ArrayList<>(Arrays.asList("1","2","3","4"));
     Spinner n_picker ;
     EditText et_nombre;
     EditText et_dni;
-
-    TextView tw_nombre;
-    TextView tw_dni;
-    TextView tw_nivel;
 
     private UsuarioDao usuarioDAO;
     private ConexionBBDD conexionDB;

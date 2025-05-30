@@ -137,8 +137,6 @@ public class CronometroDialogFragment extends DialogFragment {
                 return;
             }
         }
-
-        Log.d("CronometroDialogFragment", "Mostrando notificación");
         notificationManager.notify(1001, builder.build());
     }
 
