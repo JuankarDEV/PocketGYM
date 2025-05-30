@@ -24,16 +24,11 @@ Funcionalidades NFC: integradas en el sistema para detección y autenticación
 🚀 Instalación y uso
 ⚠️ Esta sección será completada próximamente.
 
-Cuando el APK esté listo o tengas instrucciones de compilación:
-
-bash
-Copiar
-Editar
 # Clonar el repositorio
 git clone https://github.com/tu_usuario/pocket-gym.git
 
 # Abrir el proyecto en Android Studio
-📸 Capturas de pantalla
+
 
 👤 Autor
 Desarrollado por JuankarDEV.
